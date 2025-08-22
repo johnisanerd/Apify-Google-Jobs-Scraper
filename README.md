@@ -1,6 +1,6 @@
 https://apify.com/johnvc/apify-google-jobs?fpr=9n7kx3
 
-# 🚀 Google Jobs Search Scraper ��
+# 🚀 Google Jobs Search Scraper 
 
 > **The most efficient, reliable, and developer-friendly Google Jobs search scraper**
 
