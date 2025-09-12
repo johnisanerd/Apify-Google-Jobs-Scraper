@@ -62,4 +62,4 @@ https://apify.com/johnvc/apify-google-jobs?fpr=9n7kx3
 [**Made with ❤️**](https://apify.com/johnvc?fpr=9n7kx3)
 
 *Transform your search automation with the most reliable and efficient Google Jobs search scraper on the market.*
-Last Updated: 2025.09.11
+Last Updated: 2025.09.12
