@@ -1,4 +1,4 @@
-https://apify.com/johnvc/apify-google-jobs?fpr=9n7kx3
+[https://apify.com/johnvc/apify-google-jobs](https://apify.com/johnvc/apify-google-jobs?fpr=9n7kx3)
 
 # 🚀 Google Jobs Search Scraper 
 
@@ -57,7 +57,7 @@ If you prefer not to use a `.env` file, you can set the environment variable dir
 export APIFY_API_TOKEN="your_api_key_here"
 python google-jobs-search-scraper.py
 ```
-https://apify.com/johnvc/apify-google-jobs?fpr=9n7kx3
+[https://apify.com/johnvc/apify-google-jobs](https://apify.com/johnvc/apify-google-jobs?fpr=9n7kx3)
 
 [**Made with ❤️**](https://apify.com/johnvc?fpr=9n7kx3)
 
