@@ -62,4 +62,4 @@ python google-jobs-search-scraper.py
 [**Made with ❤️**](https://apify.com/johnvc?fpr=9n7kx3)
 
 *Transform your search automation with the most reliable and efficient Google Jobs search scraper on the market.*
-Last Updated: 2025.11.08
+Last Updated: 2025.11.09
