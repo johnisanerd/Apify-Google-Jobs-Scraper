@@ -1,8 +1,12 @@
-[https://apify.com/johnvc/apify-google-jobs](https://apify.com/johnvc/apify-google-jobs?fpr=9n7kx3)
+[https://apify.com/johnvc/google-jobs-scraper](https://apify.com/johnvc/google-jobs-scraper?fpr=9n7kx3)
 
-# 🚀 Google Jobs Search Scraper 
+# 🚀 Google Jobs Search API
 
-> **The most efficient, reliable, and developer-friendly Google Jobs search scraper**
+> **The most efficient, reliable, and developer-friendly Google Jobs search API.**
+
+You can run this using pay [per event pricing here](https://apify.com/johnvc/google-jobs-scraper?fpr=9n7kx3).
+
+And pay per result pricing [here](https://apify.com/johnvc/google-jobs-scraper---pay-per-result?fpr=9n7kx3).
 
 ## 🚀 Quick Start
 
@@ -57,7 +61,7 @@ If you prefer not to use a `.env` file, you can set the environment variable dir
 export APIFY_API_TOKEN="your_api_key_here"
 python google-jobs-search-scraper.py
 ```
-[https://apify.com/johnvc/apify-google-jobs](https://apify.com/johnvc/apify-google-jobs?fpr=9n7kx3)
+[https://apify.com/johnvc/google-jobs-scraper](https://apify.com/johnvc/google-jobs-scraper?fpr=9n7kx3)
 
 [**Made with ❤️**](https://apify.com/johnvc?fpr=9n7kx3)
 

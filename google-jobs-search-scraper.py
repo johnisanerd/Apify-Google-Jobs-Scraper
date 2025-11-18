@@ -14,6 +14,7 @@ import os
 from typing import Dict, Any, Optional
 from dotenv import load_dotenv
 from apify_client import ApifyClient
+from pprint import pprint
 
 load_dotenv()
 
@@ -27,17 +28,29 @@ run_input = {
     "country": "us",
     "language": "en",
     "google_domain": "google.com",
-    "num_results": 100,
-    "max_pagination": 0,
+    "num_results": 10,
+    "max_pagination": 1,
     "include_lrad": False,
     "lrad_value": "5",
     "max_delay": 1,
     "output_file": "google_jobs_results.json",
 }
 
+print(f"Run the Aactor with Pay-Per-Event Pricing:  ")
+
 # Run the Actor and wait for it to finish
-run = client.actor("CkLDY9GAQf6QlP6GP").call(run_input=run_input)
+run = client.actor("johnvc/google-jobs-scraper").call(run_input=run_input)
 
 # Fetch and print Actor results from the run's dataset (if there are any)
 for item in client.dataset(run["defaultDatasetId"]).iterate_items():
-    print(item)
+    pprint(item)
+
+
+print(f"Run the Aactor with Pay-Per-Result Pricing:  ")
+
+# Run the Actor and wait for it to finish
+run = client.actor("johnvc/google-jobs-scraper---pay-per-result").call(run_input=run_input)
+
+# Fetch and print Actor results from the run's dataset (if there are any)
+for item in client.dataset(run["defaultDatasetId"]).iterate_items():
+    pprint(item)

@@ -1,0 +1,7 @@
+[project]
+name = "apify-google-jobs-scraper"
+version = "0.1.0"
+description = "Google Jobs API"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
