@@ -1,56 +1,51 @@
 """
-Google Jobs Search Scraper: A Quick Start Example
-See more at: https://apify.com/johnvc/apify-google-jobs?fpr=9n7kx3
+Google Jobs API: A Quick Start Example
+See more at: https://apify.com/johnvc/Google-Jobs-Scraper?fpr=9n7kx3
+Input schema: https://apify.com/johnvc/Google-Jobs-Scraper/input-schema?fpr=9n7kx3
 
-This script demonstrates how to use the Google Jobs Search Scraper Actor
-to search Google Jobs and retrieve structured search results.
+This script shows how to call the Google Jobs API on Apify from Python and read its
+structured JSON output. It exercises several input parameters so you can see what
+is configurable, while keeping the run small so your first call stays cheap.
 
-https://docs.apify.com/api/client/python/docs/overview/introduction
-
-
+Get your free Apify API key at: https://apify.com?fpr=9n7kx3
 """
 
 import os
-from typing import Dict, Any, Optional
 from dotenv import load_dotenv
 from apify_client import ApifyClient
-from pprint import pprint
 
 load_dotenv()
 
-# Initialize the ApifyClient with your API token
+# Initialize the Apify client with your API token (read from .env)
 client = ApifyClient(os.getenv("APIFY_API_TOKEN"))
 
-# Prepare the Actor input
+# Build the Actor input.
+# Billing is per page processed, so max_pagination is kept at 1 to keep this first
+# run inexpensive. Raise it once you have your own API key and know your budget.
 run_input = {
     "query": "Software Engineer",
     "location": "San Francisco, CA",
-    "country": "us",
-    "language": "en",
-    "google_domain": "google.com",
-    "num_results": 10,
-    "max_pagination": 1,
-    "include_lrad": False,
-    "lrad_value": "5",
-    "max_delay": 1,
-    "output_file": "google_jobs_results.json",
+    "country": "us",                 # country code
+    "language": "en",                # language code
+    "num_results": 10,               # cap on results
+    "max_pagination": 1,             # pages to fetch; kept at 1 to stay cheap
 }
 
-print(f"Run the Aactor with Pay-Per-Event Pricing:  ")
-
 # Run the Actor and wait for it to finish
-run = client.actor("johnvc/google-jobs-scraper").call(run_input=run_input)
+run = client.actor("johnvc/Google-Jobs-Scraper").call(run_input=run_input)
+if run is None:
+    raise SystemExit("The Actor run did not return a result.")
 
-# Fetch and print Actor results from the run's dataset (if there are any)
-for item in client.dataset(run["defaultDatasetId"]).iterate_items():
-    pprint(item)
+# Read structured results from the run's default dataset (one item per job listing)
+items = list(client.dataset(run.default_dataset_id).iterate_items())
+print(f"Returned {len(items)} job(s).\n")
 
-
-print(f"Run the Aactor with Pay-Per-Result Pricing:  ")
-
-# Run the Actor and wait for it to finish
-run = client.actor("johnvc/google-jobs-scraper---pay-per-result").call(run_input=run_input)
-
-# Fetch and print Actor results from the run's dataset (if there are any)
-for item in client.dataset(run["defaultDatasetId"]).iterate_items():
-    pprint(item)
+# Show a few key fields from each job.
+for item in items[:10]:
+    apply_link = ""
+    options = item.get("apply_options") or []
+    if options:
+        apply_link = options[0].get("link", "")
+    print(f"{item.get('title')}  |  {item.get('company_name')}  |  {item.get('location')}  [{item.get('via')}]")
+    if apply_link:
+        print(f"   apply: {apply_link}")

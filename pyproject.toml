@@ -1,7 +1,13 @@
 [project]
-name = "apify-google-jobs-scraper"
+name = "apify-google-jobs-api"
 version = "0.1.0"
-description = "Google Jobs API"
+description = "Example client for the Google Jobs API Apify Actor"
 readme = "README.md"
-requires-python = ">=3.12"
-dependencies = []
+requires-python = ">=3.11"
+dependencies = [
+    "apify-client>=3.0.0",
+    "python-dotenv>=1.0.0",
+]
+
+[tool.uv]
+package = false
