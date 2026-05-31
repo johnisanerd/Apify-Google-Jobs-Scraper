@@ -288,4 +288,4 @@ More help: https://docs.apify.com/platform/integrations/mcp
 
 *Use the Google Jobs API to power recruiting tools, market research, and analytics with reliable, structured results.*
 
-Last Updated: 2026.05.31
+Last Updated: 2026.06.01
